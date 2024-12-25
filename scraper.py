@@ -148,6 +148,7 @@ def run_scraper():
     try:
         businesses = fetch_businesses(location, category, API_KEY, radius)
         if businesses:
+            save_to_csv(businesses)  # Save the fetched businesses to a CSV file
             result_text.delete(1.0, tk.END)  # Clear previous results
             for business in businesses:
                 result_text.insert(tk.END, f"{'Name:':<30} {business['Name']}\n")
