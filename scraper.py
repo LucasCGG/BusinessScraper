@@ -150,11 +150,12 @@ def run_scraper():
         if businesses:
             result_text.delete(1.0, tk.END)  # Clear previous results
             for business in businesses:
-                result_text.insert(tk.END, f"Name: {business['Name']}\n")
-                result_text.insert(tk.END, f"Website: {business['Website']}\n")
-                result_text.insert(tk.END, f"Phone: {business['Phone']}\n")
-                result_text.insert(tk.END, f"Email: {business['Email']}\n")
-                result_text.insert(tk.END, f"Address: {business['Address']}\n\n")
+                result_text.insert(tk.END, f"{'Name:':<30} {business['Name']}\n")
+                result_text.insert(tk.END, f"{'Website:':<30} {business['Website']}\n")
+                result_text.insert(tk.END, f"{'Phone:':<30} {business['Phone']}\n")
+                result_text.insert(tk.END, f"{'Email:':<30} {business['Email']}\n")
+                result_text.insert(tk.END, f"{'Address:':<30} {business['Address']}\n")
+                result_text.insert(tk.END, "-"*60 + "\n")  # Separator line
             messagebox.showinfo("Success", f"Found {len(businesses)} businesses.")
         else:
             messagebox.showinfo("No Results", "No businesses found.")
